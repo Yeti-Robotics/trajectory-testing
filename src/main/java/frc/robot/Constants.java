@@ -27,7 +27,7 @@ public final class Constants {
     // public static final boolean kLeftEncoderReversed = false;
     // public static final boolean kRightEncoderReversed = true;
 
-    public static final double kTrackwidthMeters = 2.3067113084484503;
+    public static final double kTrackwidthMeters = 0.6096;
     public static final DifferentialDriveKinematics kDriveKinematics =
         new DifferentialDriveKinematics(kTrackwidthMeters);
 
@@ -42,12 +42,12 @@ public final class Constants {
     // for *your* robot's drive.
     // The Robot Characterization Toolsuite provides a convenient tool for obtaining these
     // values for your robot.
-    public static final double ksVolts = 0.686;
-    public static final double kvVoltSecondsPerMeter = 3.49;
-    public static final double kaVoltSecondsSquaredPerMeter = 0.207;
+    public static final double ksVolts = 0.699;
+    public static final double kvVoltSecondsPerMeter = 3.51;
+    public static final double kaVoltSecondsSquaredPerMeter = 0.208;
 
     // Example value only - as above, this must be tuned for your drive!
-    public static final double kPDriveVel = 2.02;
+    public static final double kPDriveVel = 1.72;
   }
 //piss n shit
   public static final class OIConstants {
@@ -57,7 +57,7 @@ public final class Constants {
   public static final class AutoConstants {
     // note: copy pasted directly
     public static final double kMaxSpeedMetersPerSecond = 3;
-    public static final double kMaxAccelerationMetersPerSecondSquared = 7;
+    public static final double kMaxAccelerationMetersPerSecondSquared = 3;
 
     // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
     public static final double kRamseteB = 2;

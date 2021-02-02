@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
+import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveWheelSpeeds;
@@ -59,6 +60,8 @@ public class DriveSubsystem extends SubsystemBase {
   // The gyro sensor
   private final Gyro gyro = new ADXRS450_Gyro();
 
+  // private final Accelerometer accel = new 
+
   // Odometry class for tracking robot pose
   private final DifferentialDriveOdometry m_odometry;
 
@@ -86,6 +89,7 @@ public class DriveSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // Update the odometry in the periodic block
+      // System.out.println(gyro.getRotation2d());
       m_odometry.update(gyro.getRotation2d(), leftfalcon1.getSelectedSensorPosition(), rightfalcon1.getSelectedSensorPosition());
     }
 
