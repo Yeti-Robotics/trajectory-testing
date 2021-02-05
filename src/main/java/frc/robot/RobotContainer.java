@@ -107,6 +107,8 @@ public class RobotContainer {
             .addConstraint(autoVoltageConstraint);
 
     // An example trajectory to follow.  All units in meters.
+    
+    /*
     Trajectory exampleTrajectory =
         TrajectoryGenerator.generateTrajectory(
             // Start at the origin facing the +X direction
@@ -117,11 +119,14 @@ public class RobotContainer {
             new Pose2d(3, 0, new Rotation2d(0)),
             // Pass config
             config);
+    */
+
+    Trajectory customTrajectory = customTrajectory();
 
             // System.out.println(exampleTrajectory.getStates());
     RamseteCommand ramseteCommand =
         new RamseteCommand(
-            ihateithere(),
+            customTrajectory,
             m_robotDrive::getPose,
             new RamseteController(AutoConstants.kRamseteB, AutoConstants.kRamseteZeta),
             new SimpleMotorFeedforward(
@@ -137,13 +142,13 @@ public class RobotContainer {
             m_robotDrive);
 
     // Reset odometry to the starting pose of the trajectory.
-    m_robotDrive.resetOdometry(exampleTrajectory.getInitialPose());
+    m_robotDrive.resetOdometry(customTrajectory.getInitialPose());
 
     // Run path following command, then stop at the end.
     return ramseteCommand.andThen(() -> m_robotDrive.tankDriveVolts(0, 0));
   }
 
-  public Trajectory ihateithere(){
+  public Trajectory customTrajectory(){
     String trajectoryJSON = "paths/Test.wpilib.json";
     Trajectory trajectory;
     // Trajectory trajectory = new Trajectory();
